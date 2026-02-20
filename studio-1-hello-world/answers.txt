@@ -1,0 +1,31 @@
+The header file needed for fprintf() is:
+
+#include <stdio.h>
+
+
+The difference between fprintf() and printf() in their signatures is that fprintf() takes a FILE stream as its first argument, while printf() does not. printf() automatically prints to stdout.
+
+
+According to the DESCRIPTION section, printf() writes output to stdout, while fprintf() writes output to the stream specified by its first argument.
+
+
+Terminal output from running hello_fprintf:
+
+Hello, world!
+
+
+The section number for system calls in the manual is:
+
+2
+
+
+The header file needed to use write() is:
+
+#include <unistd.h>
+
+
+When I changed the third argument of write() to 1000, the program printed my message and then printed garbage characters. This happens because write() prints exactly the number of bytes given and does not stop at the end of the string. It continues printing whatever data is in memory after the string.
+
+
+A situation where I would use a C library function is when I want portability across different operating systems and easier string handling. A situation where I would use a system call is when I need low-level control over the operating system, such as working directly with file descriptors or improving performance.
+
