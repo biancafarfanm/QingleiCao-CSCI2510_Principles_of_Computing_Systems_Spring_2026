@@ -1,0 +1,62 @@
+CSCI 2510 – Studio: Input/Output
+Name: Bianca Farfan
+
+Exercise 1: Run `cat` and describe what happens?
+When I ran the command `cat` and pressed Enter, the program waited for input.
+When I typed text and pressed Enter, the same text appeared on the screen.
+This happens because `cat` reads from standard input (the keyboard)
+and writes to standard output (the terminal).
+When I pressed CTRL-D, the program terminated because CTRL-D sends
+an end-of-file (EOF) signal.
+
+Exercise 2: Run `cat < mars.txt` and describe what happens.
+When I ran `cat < mars.txt`, the contents of mars.txt were printed
+to the screen.
+The `<` operator redirects standard input so that instead of reading
+from the keyboard, the program reads from the file.
+
+Exercise 3: Run `cat < mars.txt > new.txt` and describe what happens.
+When I ran `cat < mars.txt > new.txt`, nothing was printed to the screen.
+The contents of mars.txt were copied into new.txt.
+The `<` operator redirected input from mars.txt, and the `>` operator
+redirected output into new.txt instead of the terminal.
+
+Exercise 4: Run `cat > new.txt` and describe what happens.
+When I ran `cat > new.txt`, the program waited for me to type text.
+Everything I typed was written into new.txt.
+When I pressed CTRL-D, the program ended and the file contained
+exactly what I typed. The `>` operator overwrites the file.
+
+Exercise 5: Run `cat >> new.txt` and describe what happens.
+When I ran `cat >> new.txt`, the text I typed was added to the end
+of the file instead of replacing it.
+The `>>` operator appends to the file instead of overwriting it.
+
+Exercise 6: What header file is required for read() and write()?
+The required header file is: #include <unistd.h>
+
+Exercise 7: What is the return value type of read()?
+The return value type of read() is ssize_t.
+
+Exercise 8: What return value indicates end-of-file?
+A return value of 0 indicates end-of-file.
+
+Exercise 9: Does modifying bufferSize affect correctness?
+Changing bufferSize does not affect correctness as long as the
+program correctly uses the return value from read().
+If bufferSize is very small (even equal to 1) the program still works.
+However, it will perform more system calls and run slower.
+
+Exercise 10: What is the tradeoff between small and large buffers?
+
+Small buffer:
+- Uses less memory
+- More system calls
+- Slower performance
+
+Large buffer:
+- Uses more memory
+- Fewer system calls
+- Faster performance
+
+The tradeoff is between memory usage and performance.
